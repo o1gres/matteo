@@ -1,44 +1,45 @@
 <?php
-echo ("sono a monte");
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 
-  if (!isset($_POST['submit'])) {
-      echo("post?");
+  if (!isset($_POST['submit'])) {   
+      
       if (empty($_POST['uname']) || empty($_POST['upass'])) {
 	  $error = "Username or Password is invalid";
-	  echo($error);
+	  //echo($error);
       } else {
-	      echo("sono nel else");
 	      // Define $username and $password
-	      $username=$_POST['root'];
-	      $password=$_POST['root'];
+	      $username=$_POST['uname'];
+	      $password=$_POST['upass'];
 	      
 	      // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-	      $connection = mysql_connect("localhost", "root", "root");
+	      $mysqli = new mysqli("localhost", "root", "root", "palestra");
 	      
-	      // To protect MySQL injection for Security purpose
-	      $username = stripslashes($username);
-	      $password = stripslashes($password);
-	      $username = mysql_real_escape_string($username);
-	      $password = mysql_real_escape_string($password);
-	      
-	      // Selecting Database
-	      $db = mysql_select_db("palestra", $connection);
-	      
+	      // verifica dell'avvenuta connessione
+	      if (mysqli_connect_errno()) {
+			// notifica in caso di errore
+		      echo "Errore in connessione al DBMS: ".mysqli_connect_error();
+			// interruzione delle esecuzioni i caso di errore
+		      exit();
+	      } 
+		    
 	      // SQL query to fetch information of registerd users and finds user match.
-	      $query = mysql_query("select * from access where pass='$password' AND user='$username'", $connection);
-	      $rows = mysql_num_rows($query);
+	      $query = "select * from access where pass='$password' AND user='$username'";
+	      $result = $mysqli->query($query);
 	      
-	      
-	      
-	      if ($rows == 1) {
-		  $_SESSION['login_user']=$username; // Initializing Session
-		  header("location: profile.php"); // Redirecting To Other Page
-	      } else {
-		      $error = "Username or Password is invalid";
-		      }
-	      mysql_close($connection); // Closing Connection
+	      if($result->num_rows >0)
+		{
+		  while($row = $result->fetch_array(MYSQLI_ASSOC))
+		  {
+		   $_SESSION['login_user']=$row['user']; // Initializing Session
+		   header("location: profile.php");
+		  }
+		} else {
+			
+			$_SESSION['message'] = 'Nome utente o password errati!';
+			mysqli_close($mysqli);
+			}
 	      }
+	 
   }
 ?>

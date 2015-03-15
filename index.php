@@ -1,8 +1,8 @@
 <?php
-//include('login.php'); // Includes Login Script
+include('login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
-header("location: profile.php");
+header("location: accesso.php");
 }
 ?>
 
@@ -28,6 +28,13 @@ header("location: profile.php");
 	<!-- Main CSS -->
 	<link href="css/main.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	
+    <!-- Personal Javascript> -->
+    <script type="text/javascript" src="js/main.js"></script>
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,19 +63,32 @@ header("location: profile.php");
                     
                     <div class="caption-full">
                     
-		      <form id="login" name="login" action="login.php" method=”POST”>
+		      <form id="submit" name="submit" action="" method="post">
+			  
+			  <div class="error bottom">
+			      <span class="errore">
+				  <?php
+				  if (isset($_SESSION['message']))
+				    {
+					echo $_SESSION['message'];
+					unset($_SESSION['message']);
+				    }	
+				    ?>
+			      </span>
+			  </div>
+		      
 			  <div class="user bottom">
 			      <label for="uname" class="user">User:</label>
-			      <input type="text" id="uname" />
+			      <input type="text" id="uname" name="uname" onclick="remove_red_l();"/>
 			  </div>
 			  
 			  <div class="password bottom">
 			      <label for="upass" class="password">Password: </label>
-			      <input type="password" id="upass"/>
+			      <input type="password" id="upass" name="upass" onclick="remove_red_p();"/>
 			  </div>
 			  
 			  <div class="invia">
-			      <input type="submit" id="accedi" class="accedi" value="Login" />
+			      <input type="submit" id="accedi" class="accedi" value="Login" onclick="return check_l_p();" />
 			  </div>
 		      </form>
                         

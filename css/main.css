@@ -26,3 +26,14 @@ input.accedi {
     right: 18%;
     position: relative;
 }
+
+.errore {
+    color: red;
+    font-weight: bold;
+    
+}
+
+.border_red {
+  border: 1px solid red !important;
+  border-radius: 3px 3px 3px 3px;
+}

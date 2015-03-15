@@ -77,12 +77,17 @@ header("location: accesso.php");
 		      
 			  <div class="user bottom">
 			      <label for="nome" class="user">Nome: </label>
-			      <input type="text" id="nome" name="nome" onclick="remove_red_l();"/>
+			      <input type="text" id="nome" name="nome" onclick="remove_red_n();"/>
 			  </div>
 			  
 			  <div class="password bottom">
 			      <label for="cognome" class="password">Cognome: </label>
-			      <input type="password" id="cognome" name="cognome" onclick="remove_red_p();"/>
+			      <input type="text" id="cognome" name="cognome" onclick="remove_red_c();"/>
+			  </div>
+			  
+			  <div class="tessera bottom">
+			      <label for="tessera" class="password">Numero tessera: </label>
+			      <input type="text" id="tessera" name="tessera" onclick="remove_red_p();"/>
 			  </div>
 			  
 			  <div class="invia">

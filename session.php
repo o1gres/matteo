@@ -1,5 +1,6 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "root", "palestra");
+require_once('settings.php');
+$mysqli = new mysqli(HOST, USER, PASS, DB);
 	      
     // verifica dell'avvenuta connessione
     if (mysqli_connect_errno()) {

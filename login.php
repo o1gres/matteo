@@ -1,4 +1,5 @@
 <?php
+require_once('settings.php');
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 
@@ -13,7 +14,7 @@ $error=''; // Variable To Store Error Message
 	      $password=$_POST['upass'];
 	      
 	      // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-	      $mysqli = new mysqli("localhost", "root", "root", "palestra");
+	      $mysqli = new mysqli(HOST, USER, PASSWORD, DB);
 	      
 	      // verifica dell'avvenuta connessione
 	      if (mysqli_connect_errno()) {

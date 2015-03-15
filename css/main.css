@@ -1,0 +1,28 @@
+p {
+    font-family: Arial;
+    color: #003399;
+}
+
+span.bold_text {
+    font-weight: bold;
+}
+
+.caption-full {
+    position: relative;
+    width: 30%;
+    left: 38%;
+}
+
+label {
+    width: 80px; 
+}
+
+.bottom {
+    margin-bottom: 20px;
+}
+
+input.accedi {
+    float: right;
+    right: 18%;
+    position: relative;
+}

@@ -42,3 +42,12 @@ input.accedi {
   width: 200px;
   margin-bottom: 30px;
 }
+
+.benvenuto {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upper {
+  text-transform: capitalize;
+}

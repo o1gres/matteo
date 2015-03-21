@@ -67,14 +67,14 @@ $cognome=$_GET['cognome'];
                     <div class="caption-full">
                     
 		      <div>
-			
-			Benvenuto
-			<?php
-			
-			echo("$nome $cognome");
-			header("Refresh: 2; URL=accesso.php");
-			
-			?>
+			  <div class="benvenuto">
+			  Benvenuto
+			  <span class="upper"><?php echo("$nome") ?></span>
+			  <span class="upper"><?php echo("$cognome") ?></span>
+			  <?php
+			    header("Refresh: 2; URL=accesso.php");
+			  ?>
+			  </div>
 		      </div>
 		      
 		    </div>

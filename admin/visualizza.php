@@ -63,9 +63,9 @@ if(isset($_SESSION['login_user'])){
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
                     <div class="caption-full">
-                    
+                    <a href="index.php" class="btn btn-primary" style="margin-bottom: 20px;"> Torna ad Amministrazione </a>
 		      <div>
-			<div class="registra_utente" id="reistra_utente">Inserisci nuovo socio</div>
+			<div class="registra_utente" id="reistra_utente" style="font-size: 20px; font-weight: bold">Inserisci nuovo socio</div>
 			
 			<form id="stats" name="stats" action="statistiche.php" method="post">
 			  
@@ -128,7 +128,16 @@ if(isset($_SESSION['login_user'])){
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+    
+    <!-- date picker -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
+    
+    <script type="text/javascript">
+    var date = $('#dal, #al').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    </script>
 </body>
 
 </html>

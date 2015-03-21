@@ -64,7 +64,9 @@ if(isset($_SESSION['login_user'])){
                     <div class="caption-full">
                     
 		      <div>
-			<div class="registra_utente" id="reistra_utente">Inserisci nuovo socio</div>
+			<a href="index.php" class="btn btn-primary" style="margin-bottom: 20px;"> Torna ad Amministrazione </a>
+		      
+			<div class="registra_utente" id="reistra_utente" style="font-size: 20px; font-weight: bold">Inserisci nuovo socio</div>
 			
 			<form id="stats" name="stats" action="registra.php" method="post">
 			  

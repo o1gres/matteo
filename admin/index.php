@@ -64,6 +64,8 @@ if(isset($_SESSION['login_user'])){
                     <div class="caption-full">
                     
 		      <div>
+			<a href="../index.php" class="btn btn-success " style="margin-bottom: 20px;"> Torna ad Index </a>
+		      
 			<div style="font-size: 20px; font-weight: bold; margin-bottom: 30px; margin-left: 15px;">
 			Amministrazione
 			</div>

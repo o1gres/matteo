@@ -2,7 +2,7 @@
 include('login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
-header("location: accesso.php");
+//header("location: ../index.php");
 }
 ?>
 
@@ -63,34 +63,14 @@ header("location: accesso.php");
                     
                     <div class="caption-full">
                     
-		      <form id="submit" name="submit" action="" method="post">
-			  
-			  <div class="error bottom">
-			      <span class="errore">
-				  <?php
-				  if (isset($_SESSION['message']))
-				    {
-					echo $_SESSION['message'];
-					unset($_SESSION['message']);
-				    }	
-				    ?>
-			      </span>
-			  </div>
-		      
-			  <div class="user bottom">
-			      <label for="auname" class="user">User:</label>
-			      <input type="text" id="auname" name="auname" onclick="remove_red_l();"/>
-			  </div>
-			  
-			  <div class="password bottom">
-			      <label for="aupass" class="password">Password: </label>
-			      <input type="password" id="aupass" name="aupass" onclick="remove_red_p();"/>
-			  </div>
-			  
-			  <div class="invia">
-			      <input type="submit" id="accedi" class="accedi" value="Login" onclick="return check_l_p();" />
-			  </div>
-		      </form>
+		      <div>
+			<div style="font-size: 20px; font-weight: bold; margin-bottom: 30px; margin-left: 15px;">
+			Amministrazione
+			</div>
+			<a href="inserisci.php" id="inserisci" class="inserisxi button btn btn-primary">Inserisci</a>
+		     
+			<a href="visualizza.php" id="visualizza" class="visualizza button btn btn-primary">Visualizza</a>
+		      </div>
                         
 		    </div>
 		    

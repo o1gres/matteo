@@ -1,6 +1,6 @@
 <?php
 if(isset($_SESSION['login_user'])){
-header("location: accesso.php");
+//header("location: ./index.php");
 }
 ?>
 

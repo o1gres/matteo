@@ -74,7 +74,8 @@ header("location: accesso.php");
 				    ?>
 			      </span>
 			  </div>
-		      
+		      		
+			  <!--
 			  <div class="user bottom">
 			      <label for="nome" class="user">Nome: </label>
 			      <input type="text" id="nome" name="nome" onclick="remove_red_n();"/>
@@ -84,14 +85,15 @@ header("location: accesso.php");
 			      <label for="cognome" class="password">Cognome: </label>
 			      <input type="text" id="cognome" name="cognome" onclick="remove_red_c();"/>
 			  </div>
-			  
+			  -->			  
+
 			  <div class="tessera bottom">
-			      <label for="tessera" class="password">Numero tessera: </label>
-			      <input type="text" id="tessera" name="tessera" onclick="remove_red_p();"/>
+			      <label for="tessera" class="password">Username: </label>
+			      <input type="text" id="tessera" name="tessera" required>
 			  </div>
 			  
 			  <div class="invia">
-			      <input type="submit" id="registra" class="registra" value="Accesso" onclick="" />
+			      <input type="submit" id="registra" class="registra" value="Accesso"/>
 			  </div>
 		      </form>
                         

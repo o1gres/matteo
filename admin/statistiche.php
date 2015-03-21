@@ -1,9 +1,9 @@
 <?php 
 require_once('../settings.php');
 
-$nome=$_POST['nome'];
-$cognome=$_POST['cognome'];
-$tessera=$_POST['tessera'];
+$nome=strtolower($_POST['nome']);
+$cognome=strtolower($_POST['cognome']);
+$usersocio=strtolower($_POST['username']);
 $dal=$_POST['dal'];
 $al=$_POST['al'];
 
@@ -24,11 +24,10 @@ if ($mysqli->connect_error) {
 
 
 //CERCO L'UTENTE NEL DATABASE
-$query = "select * from clienti where nome='$nome_enc' AND cognome='$cognome_enc' AND num_tessera='$tessera'";
+$query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)='$cognome_enc' AND LOWER(username)='$usersocio'";
     $result = $mysqli->query($query);
     if($result->num_rows >0)
       {
-      
 	while($row = $result->fetch_array(MYSQLI_ASSOC))
 	{
 	echo($nome." ".$cognome."<br><br>");
@@ -43,6 +42,8 @@ $query = "select * from clienti where nome='$nome_enc' AND cognome='$cognome_enc
 		echo(" - ".$row['data']."<br>");
 	     } 
 	  
+	  } else {
+	    echo "Nessun accesso nel periodo selezionato";
 	  }
 	  
 	}

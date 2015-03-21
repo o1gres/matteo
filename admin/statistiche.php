@@ -33,14 +33,19 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 	echo($nome." ".$cognome."<br><br>");
 	
 	  $user_id = $row['id'];
-	  $sql = "SELECT * FROM accessi WHERE cliente='$user_id'";
+	  $sql = "SELECT * FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
+	  $sql2 = "SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
 	  $result1 = $mysqli->query($sql);
+	  $result2 = $mysqli->query($sql2);  
 	  if($result1->num_rows >0){
 	  $num_accessi = 0;
+	  $row2 = $result2->fetch_array(MYSQLI_ASSOC);
+	  echo ("Ha effettuato ". $row2['num']." accessi <br><br>"); 
 	     while($row = $result1->fetch_array(MYSQLI_ASSOC)){
 		$num_accessi++;
 		echo(" - ".$row['data']."<br>");
 	     } 
+	  
 	  
 	  } else {
 	    echo "Nessun accesso nel periodo selezionato";

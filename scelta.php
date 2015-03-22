@@ -54,12 +54,17 @@ header("location: accesso.php");
         <div class="row">
 			
 	    <div class="col-md-9" style="width: 100%;">
-				
+	    
+		<div class="esci">
+		  <a href="logout.php" class="btn btn-danger">Esci </a>
+		</div>		
+		
                 <div class="thumbnail"  style="border: none;">
 					
                     <img class="img-responsive" src="img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
                     <div class="caption-full">
+		      
 		      <div>
 			<a href="admin/index.php" id="admin" class="admin button btn btn-primary">Admin</a>
 		     

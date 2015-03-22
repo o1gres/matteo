@@ -54,6 +54,9 @@ header("location: accesso.php");
         <div class="row">
 			
 	    <div class="col-md-9" style="width: 100%;">
+		<div class="esci">
+		  <a href="logout.php" class="btn btn-danger">Esci </a>
+		</div>				
 				
                 <div class="thumbnail"  style="border: none;">
 					

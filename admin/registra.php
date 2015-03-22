@@ -11,6 +11,7 @@ $telefono=$_POST['telefono'];
 
 $nome_enc =  base64_encode($nome);
 $cognome_enc =  base64_encode($cognome);
+$usersocio_enc = base64_encode($usersocio);
     
     
 
@@ -28,7 +29,7 @@ if ($mysqli->connect_error) {
 
 //CONTROLLO SE L'UTENTE E' GIA PRESENTE NEL DB
  // SQL query to fetch information of registerd users and finds user match.
-	      $query = "select * from clienti where nome='$nome_enc' AND cognome='$cognome_enc' AND username='$usersocio'";
+	      $query = "select * from clienti where nome='$nome_enc' AND cognome='$cognome_enc' AND username='$usersocio_enc'";
 	      $result = $mysqli->query($query);
 	      if($result->num_rows >0)
 		{
@@ -37,7 +38,7 @@ if ($mysqli->connect_error) {
 		} else {
 		//INSERISCO NEL DB
 
-			  $sql = "INSERT INTO clienti (nome, cognome, username, data_di_nascita, telefono, paese) VALUES (\"$nome_enc\", \"$cognome_enc\", \"$usersocio\", \"$data\", \"$telefono\", \"$paese\")";
+			  $sql = "INSERT INTO clienti (nome, cognome, username, data_di_nascita, telefono, paese) VALUES (\"$nome_enc\", \"$cognome_enc\", \"$usersocio_enc\", \"$data\", \"$telefono\", \"$paese\")";
 
 			  if ($mysqli->query($sql) === TRUE) {
 			      echo "Utente registrato correttamente";

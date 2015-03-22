@@ -8,6 +8,8 @@ require_once('settings.php');
  $data =  $now->format('Y-m-d'); 
   // MySQL datetime format
     //echo $now->getTimestamp()
+    
+$usersocio_enc = base64_encode($usersocio);
    
 
 $servername = HOST;
@@ -24,7 +26,7 @@ if ($mysqli->connect_error) {
 
 //CONTROLLO SE L'UTENTE E' GIA PRESENTE NEL DB
  // SQL query to fetch information of registerd users and finds user match.
-	      $query = "SELECT * FROM clienti WHERE username='$usersocio'";
+	      $query = "SELECT * FROM clienti WHERE username='$usersocio_enc'";
 	      $result = $mysqli->query($query);
 	      if($result->num_rows >0)
 		{

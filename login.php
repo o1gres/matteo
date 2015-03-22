@@ -11,7 +11,7 @@ $error=''; // Variable To Store Error Message
       } else {
 	      // Define $username and $password
 	      $username=$_POST['uname'];
-	      $password=$_POST['upass'];
+	      $password=md5($_POST['upass']);
 	      
 	      // Establishing Connection with Server by passing server_name, user_id and password as a parameter
 	      $mysqli = new mysqli(HOST, USER, PASSWORD, DB);

@@ -9,6 +9,7 @@ $al=$_POST['al'];
 
 $nome_enc =  base64_encode($nome);
 $cognome_enc =  base64_encode($cognome);
+$usersocio_enc = base64_encode($usersocio);
 
 $servername = HOST;
 $username = USER;
@@ -75,6 +76,11 @@ if ($mysqli->connect_error) {
 			
 	    <div class="col-md-9" style="width: 100%;">
 				
+		<div class="esci">
+		  <a href="visualizza.php" class="btn btn-primary">Indietro </a>
+		  <a href="../logout.php" class="btn btn-danger">Esci </a>
+		</div>		
+				
                 <div class="thumbnail"  style="border: none;">
 					
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
@@ -83,7 +89,7 @@ if ($mysqli->connect_error) {
 
 <?php
 //CERCO L'UTENTE NEL DATABASE
-$query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)='$cognome_enc' AND LOWER(username)='$usersocio'";
+$query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)='$cognome_enc' AND LOWER(username)='$usersocio_enc'";
     $result = $mysqli->query($query);
     if($result->num_rows >0)
       {

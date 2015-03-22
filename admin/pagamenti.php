@@ -58,6 +58,7 @@ if(isset($_SESSION['login_user'])){
 	    <div class="col-md-9" style="width: 100%;">
 	    
 		<div class="esci">
+		  <a href="pagamenti_scelta.php" class="btn btn-primary">Indietro </a>
 		  <a href="../logout.php" class="btn btn-danger">Esci </a>
 		</div>
 				

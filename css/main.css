@@ -31,11 +31,11 @@ input {
     margin-bottom: 20px;
 }
 
-input.accedi {
+/*input.accedi {
     float: right;
     right: 23%;
     position: relative;
-}
+}*/
 
 .errore {
     color: red;

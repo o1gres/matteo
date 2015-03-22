@@ -1,8 +1,8 @@
-<?php
-include('login.php'); // Includes Login Script
+  <?php
+include('./login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
-//header("location: ../index.php");
+//header("location: accesso.php");
 }
 ?>
 
@@ -17,7 +17,7 @@ if(isset($_SESSION['login_user'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Pagamenti</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -56,28 +56,25 @@ if(isset($_SESSION['login_user'])){
         <div class="row">
 			
 	    <div class="col-md-9" style="width: 100%;">
-				
+	    
 		<div class="esci">
 		  <a href="../logout.php" class="btn btn-danger">Esci </a>
-		</div>				
+		</div>
 				
                 <div class="thumbnail"  style="border: none;">
 					
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
                     <div class="caption-full">
-                    
+                    <a href="index.php" class="btn btn-primary" style="margin-bottom: 20px;"> Torna ad Amministrazione </a>
+                    <br>
+                    <br>
 		      <div>
-			<a href="../index.php" class="btn btn-success " style="margin-bottom: 20px;"> Torna ad Index </a>
-		      
-			<div style="font-size: 20px; font-weight: bold; margin-bottom: 30px; margin-left: 15px;">
-			Amministrazione
-			</div>
-			<a href="inserisci.php" id="inserisci" class="inserisxi button btn btn-primary">Inserisci</a>
-		     
-			<a href="visualizza.php" id="visualizza" class="visualizza button btn btn-primary">Visualizza</a>
 			
-			<a href="pagamenti_scelta.php" id="visualizza" class="visualizza button btn btn-primary">Pagamenti</a>
+			<a href="pagamenti_aggiunta.php" class="btn btn-primary" style="margin-bottom: 20px;"> Aggiungi pagamento</a>
+			<br>
+			<a href="pagamenti.php" class="btn btn-primary" style="margin-bottom: 20px;"> Visualizza pagamento</a>
+			
 		      </div>
                         
 		    </div>
@@ -93,7 +90,17 @@ if(isset($_SESSION['login_user'])){
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+    
+    <!-- date picker -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
+    
+    <script type="text/javascript">
+    var date = $('#dal, #al').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    </script>
 </body>
 
 </html>
+

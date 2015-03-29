@@ -1,6 +1,7 @@
 <?php
 require_once('settings.php');
 session_start(); // Starting Session
+//$_SESSION['login_user'] = 'ciao';
 $error=''; // Variable To Store Error Message
 
   if (!isset($_POST['submit'])) {   

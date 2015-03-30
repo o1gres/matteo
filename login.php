@@ -1,15 +1,16 @@
 <?php
-require_once('settings.php');
-session_start(); // Starting Session
-//$_SESSION['login_user'] = 'ciao';
-$error=''; // Variable To Store Error Message
 
+//session_set_save_handler ("open", "close", "read", "write", "destroy", "gc");
+require_once('settings.php');
+require_once('session.php');
+
+$error=''; // Variable To Store Error Message
   if (!isset($_POST['submit'])) {   
-      
       if (empty($_POST['uname']) || empty($_POST['upass'])) {
 	  $error = "Username or Password is invalid";
 	  //echo($error);
       } else {
+	      echo ("ciao2");
 	      // Define $username and $password
 	      $username=$_POST['uname'];
 	      $password=md5($_POST['upass']);
@@ -33,8 +34,11 @@ $error=''; // Variable To Store Error Message
 		{
 		  while($row = $result->fetch_array(MYSQLI_ASSOC))
 		  {
-		   $_SESSION['login_user']=$row['user']; // Initializing Session
-		   header("location: profile.php");
+		  
+		   //$_SESSION['login_user']=$row['user']; // Initializing Session
+		   session_start(); // Starting Session
+		   $_SESSION['login_user'] = 'user_session_acmove';
+		   header("location: scelta.php");
 		  }
 		} else {
 			

@@ -13,20 +13,20 @@ session_set_save_handler( '_open',
  
 /*APER LA CONNESSIONE CON IL DB*/ 
 function _open(){    
-    
- echo("open"); 
+    echo "open";
     global $_sess_db;     
     
     if ($_sess_db = mysql_connect(HOST, USER, PASSWORD)) {        
 	return mysql_select_db(DB, $_sess_db);  
 	echo ("sono connesso");
     }  
-    else ("problema connessione");
+    else echo ("problema connessione");
     
     return FALSE;
     } 
     
 function _close(){    
+    echo "close";
     global $_sess_db;     
     return mysql_close($_sess_db);
     } 
@@ -34,6 +34,7 @@ function _close(){
 
     
 function _read($id){    
+    echo "read";
     global $_sess_db;     
     $id = mysql_real_escape_string($id);     
     $sql = "SELECT data FROM sessions WHERE  id = '$id'";     
@@ -51,6 +52,8 @@ function _read($id){
     
 function _write($id, $data)
 {
+
+    echo "write";
     global $_sess_db;
  
     $access = time();
@@ -70,6 +73,7 @@ function _write($id, $data)
 
 function _destroy($id)
 {
+    echo "destroy";
     global $_sess_db;
  
     $id = mysql_real_escape_string($id);
@@ -86,6 +90,7 @@ function _destroy($id)
 
 function _clean($max)
 {
+    echo "clean";
     global $_sess_db;
  
     $old = time() - $max;

@@ -1,8 +1,8 @@
 <?php
-include('login.php'); // Includes Login Script
+require('login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
-header("location: scelta.php");
+header("location: login.php");
 }
 ?>
 
@@ -63,7 +63,7 @@ header("location: scelta.php");
                     
                     <div class="caption-full">
                     
-		      <form id="submit" name="submit" action="" method="post">
+		      <form id="submit" name="submit" action="login.php" method="post">
 			  
 			  <div class="error bottom">
 			      <span class="errore">

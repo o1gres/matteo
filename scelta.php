@@ -1,6 +1,8 @@
 <?php
-if(isset($_SESSION['login_user'])){
-header("location: accesso.php");
+session_start();
+if(!isset($_SESSION['login_user'])){
+echo ($_SESSION['login_user']);
+//header("location: index.php");
 }
 ?>
 

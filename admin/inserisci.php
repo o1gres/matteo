@@ -119,6 +119,16 @@ if(isset($_SESSION['login_user'])){
 			      <input type="text" id="telefono" name="telefono" required/>
 			  </div>
 			  
+			  <div class="attivita bottom">
+			      <label for="attivita" class="attivita">Tipo attività: </label>
+			      <textarea id="attivita" name="attivita" required></textarea>
+			  </div>
+			  
+			  <div class="pagato bottom">
+			      <label for="pagato" class="pagato">Pagato: </label>
+			      <textarea id="pagato" name="pagato" required/></textarea>
+			  </div>
+			  
 			  <div class="invia">
 			      <input type="submit" id="inserisci" class="inserisci" value="Registra"/>
 			  </div>

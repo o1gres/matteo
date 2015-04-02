@@ -75,7 +75,9 @@ if(isset($_SESSION['login_user'])){
 			</div>
 			<a href="inserisci.php" id="inserisci" class="inserisxi button btn btn-primary">Inserisci</a>
 		     
-			<a href="visualizza.php" id="visualizza" class="visualizza button btn btn-primary">Visualizza</a>
+			<a href="visualizza.php" id="visualizza" class="visualizza button btn btn-primary">Visualizza socio</a>
+			
+			<a href="visualizza_accessi.php" id="visualizza_accessi" class="visualizza button btn btn-primary">Visualizza accessi</a>
 			
 			<a href="pagamenti_scelta.php" id="visualizza" class="visualizza button btn btn-primary">Pagamenti</a>
 		      </div>

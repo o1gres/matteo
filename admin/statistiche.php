@@ -100,10 +100,32 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 	  $user_id = $row['id'];
 	  $sql = "SELECT * FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
 	  $sql2 = "SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
+	  $sql3 = "SELECT * FROM clienti WHERE username='$usersocio_enc'";
 	  $result1 = $mysqli->query($sql);
 	  $result2 = $mysqli->query($sql2);  
+	  $result3 = $mysqli->query($sql3);  
+	  $row3 = $result3->fetch_array(MYSQLI_ASSOC);
+	  ?>
+	  <table class="stat_accessi">
+	    <tr>
+	      <td>Data di nasciata</td>
+	      <td>Paese</td>
+	      <td>Telefono</td>
+	      <td>Tipo di attività</td>
+	      <td>Pagamenti</td>
+	    <tr>
+	    <tr>
+	      <td> <?php echo($row3['data_di_nascita']); ?> </td>
+	      <td> <?php echo($row3['paese']); ?> </td>
+	      <td> <?php echo($row3['telefono']); ?> </td>
+	      <td> <?php echo($row3['tipo_attivita']); ?> </td>
+	      <td> <?php echo($row3['pagamento']); ?> </td>
+	    <tr>
+	  <table>
+	  <?php
+	  //echo($row3['data_di_nascita']." - ".$row3['paese']." - ".$row3['telefono']." - ".$row3['tipo_attivita']." - ".$row3['pagamento']);
 	  if($result1->num_rows >0){
-	  $num_accessi = 0;
+	  /*$num_accessi = 0;
 	  $row2 = $result2->fetch_array(MYSQLI_ASSOC);
 	  echo ("Ha effettuato ". $row2['num']." accessi <br><br>"); 
 	     while($row = $result1->fetch_array(MYSQLI_ASSOC)){
@@ -111,7 +133,7 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 		echo(" - ".$row['data']."<br>");
 	     } 
 	  
-	  
+	  */
 	  } else {
 	    echo "Nessun accesso nel periodo selezionato";
 	  }

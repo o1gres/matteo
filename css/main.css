@@ -65,3 +65,19 @@ input {
 .esci {
   float: right;
 }
+
+.num_accessi {
+  width: 65%;
+  left: 15%;
+}
+
+.stat_accessi {
+  position: relative;
+  width: 900px;
+  left: -100%;
+  margin-bottom: 30px;
+}
+
+.stat_accessi tr > td {
+  border: 1px dotted;
+}

@@ -8,6 +8,8 @@ $usersocio=($_POST['username']);
 $data=$_POST['data_di_nascita'];
 $paese=$_POST['paese'];
 $telefono=$_POST['telefono'];
+$attivita=$_POST['attivita'];
+$pagato=$_POST['pagato'];
 
 $nome_enc =  base64_encode($nome);
 $cognome_enc =  base64_encode($cognome);
@@ -38,7 +40,7 @@ if ($mysqli->connect_error) {
 		} else {
 		//INSERISCO NEL DB
 
-			  $sql = "INSERT INTO clienti (nome, cognome, username, data_di_nascita, telefono, paese) VALUES (\"$nome_enc\", \"$cognome_enc\", \"$usersocio_enc\", \"$data\", \"$telefono\", \"$paese\")";
+			  $sql = "INSERT INTO clienti (nome, cognome, username, data_di_nascita, telefono, paese, tipo_attivita, pagamento) VALUES (\"$nome_enc\", \"$cognome_enc\", \"$usersocio_enc\", \"$data\", \"$telefono\", \"$paese\", \"$attivita\", \"$pagato\")";
 
 			  if ($mysqli->query($sql) === TRUE) {
 			      echo "Utente registrato correttamente";

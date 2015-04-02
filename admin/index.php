@@ -1,9 +1,13 @@
 <?php
-include('login.php'); // Includes Login Script
+include('../session.php');
+session_start();
+echo "sessione";
+print_R($_SESSION);
 
-if(isset($_SESSION['login_user'])){
-//header("location: ../index.php");
+if(!isset($_SESSION['login_user'])){
+  header("location: ../index.php");
 }
+else{ echo "olè";}
 ?>
 
 <!DOCTYPE html>

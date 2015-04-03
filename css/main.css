@@ -81,3 +81,8 @@ input {
 .stat_accessi tr > td {
   border: 1px dotted;
 }
+
+.num_access {
+  position: relative !important;
+  left: -80px !important;
+}

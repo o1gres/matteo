@@ -69,7 +69,7 @@ header("location: ../index.php");
                     <div class="caption-full">
                     <a href="index.php" class="btn btn-primary" style="margin-bottom: 20px;"> Torna ad Amministrazione </a>
 		      <div>
-			<div class="registra_utente" id="reistra_utente" style="font-size: 20px; font-weight: bold">Inserisci nuovo socio</div>
+			<div class="registra_utente" id="reistra_utente" style="font-size: 20px; font-weight: bold">Visualizza Socio</div>
 			
 			<form id="stats" name="stats" action="statistiche.php" method="post">
 			  
@@ -102,7 +102,7 @@ header("location: ../index.php");
 			      <label for="username" class="username">Username: </label>
 			      <input type="text" id="username" name="username" required/>
 			  </div>
-			  
+			  <!--
 			  <div class="data bottom">
 			      <label for="dal" class="data">Dal: </label>
 			      <input type="text" id="dal" name="dal" required/>
@@ -112,7 +112,7 @@ header("location: ../index.php");
 			      <label for="al" class="password">Al: </label>
 			      <input type="text" id="al" name="al" required/>
 			  </div>
-			  			  
+			  -->			  
 			  <div class="invia">
 			      <input type="submit" id="visualizza" class="visualizza" value="Visualizza"/>
 			  </div>

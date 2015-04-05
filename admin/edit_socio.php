@@ -1,22 +1,11 @@
-<?php 
+<?php
 require_once('../settings.php');
 
-require_once ("../session.php");
 
-session_start();
-if(!isset($_SESSION['login_user'])){
-header("location: ../index.php");
-}
-
-$nome=strtolower($_POST['nome']);
-$cognome=strtolower($_POST['cognome']);
-$usersocio=strtolower($_POST['username']);
-//$dal=$_POST['dal'];
-//$al=$_POST['al'];
-
-$nome_enc =  base64_encode($nome);
-$cognome_enc =  base64_encode($cognome);
-$usersocio_enc = base64_encode($usersocio);
+$userid=($_POST['userid']);
+$attivita=($_POST['edit_attivita']);
+$pagati=($_POST['edit_pagamento']);
+   
 
 $servername = HOST;
 $username = USER;
@@ -29,7 +18,6 @@ $mysqli = new mysqli($servername, $username, $password, $dbname);
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -93,25 +81,22 @@ if ($mysqli->connect_error) {
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
                     <div class="caption-full">
+<?php
+//CONTROLLO SE L'UTENTE E' GIA PRESENTE NEL DB
+
+//CERCO L'UTENTE NEL DATABASE
+$sql = "UPDATE clienti SET tipo_attivita='$attivita', pagamento='$pagati' WHERE id='$userid'";
+if ($mysqli->query($sql) === TRUE) {
+    echo "Dati aggiornati correttamente";
+} else {
+    echo "Errore aggiornando i dati: " . $conn->error;
+}
+?>    
+
 
 <?php
 //CERCO L'UTENTE NEL DATABASE
-$query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)='$cognome_enc' AND LOWER(username)='$usersocio_enc'";
-    $result = $mysqli->query($query);
-    if($result->num_rows >0)
-      {
-	while($row = $result->fetch_array(MYSQLI_ASSOC))
-	{
-	echo($nome." ".$cognome."<br><br>");
-	
-	  $user_id = $row['id'];
-	  //$sql = "SELECT * FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
-	  $sql = "SELECT * FROM accessi WHERE cliente='$user_id'";
-	  //$sql2 = "SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
-	  $sql2 = "SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id'";
-	  $sql3 = "SELECT * FROM clienti WHERE username='$usersocio_enc'";
-	  $result1 = $mysqli->query($sql);
-	  $result2 = $mysqli->query($sql2);  
+	  $sql3 = "SELECT * FROM clienti WHERE id='$userid'";  
 	  $result3 = $mysqli->query($sql3);  
 	  $row3 = $result3->fetch_array(MYSQLI_ASSOC);
 	  ?>
@@ -122,7 +107,6 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 	      <td>Telefono</td>
 	      <td>Tipo di attività</td>
 	      <td>Pagamenti</td>
-	      <td>Modifica</td>
 	    <tr>
 	    <form id="<?php echo($user_id); ?>" name="<?php echo($user_id); ?>" action="edit_socio.php" method="post">
 	      <tr>
@@ -131,38 +115,16 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 		<td> <?php echo($row3['paese']); ?> </td>
 		<td> <?php echo($row3['telefono']); ?> </td>
 		<td> 
-		  <textarea id="edit_attivita" name="edit_attivita"><?php echo($row3['tipo_attivita']);?></textarea>
+		  <?php echo($row3['tipo_attivita']);?>
 		</td>
 		<td> 
-		  <textarea id="edit_pagamento" name="edit_pagamento"><?php echo($row3['pagamento']);?></textarea>
+		  <?php echo($row3['pagamento']);?>
 		</td>  
-		<td>
-		  <input type="submit" value="OK" style="width: 50px; height: 25px;">
-		</td>
 	      <tr>
 	    </form>
 	  <table>
-	  <?php
-	  //echo($row3['data_di_nascita']." - ".$row3['paese']." - ".$row3['telefono']." - ".$row3['tipo_attivita']." - ".$row3['pagamento']);
-	  if($result1->num_rows >0){
-	  /*$num_accessi = 0;
-	  $row2 = $result2->fetch_array(MYSQLI_ASSOC);
-	  echo ("Ha effettuato ". $row2['num']." accessi <br><br>"); 
-	     while($row = $result1->fetch_array(MYSQLI_ASSOC)){
-		$num_accessi++;
-		echo(" - ".$row['data']."<br>");
-	     } 
-	  
-	  */
 
-	  } else {
-	    //echo "Nessun accesso nel periodo selezionato";
-	  }
-	  
-	}
-      }
-?>
- </div>
+</div>
 		    
 	        </div>
 	    </div>
@@ -179,3 +141,5 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 </body>
 
 </html>
+
+    

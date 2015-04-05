@@ -94,7 +94,7 @@ header("location: index.php");
 			  -->			  
 
 			  <div class="tessera bottom">
-			      <label for="tessera" class="password">Username: </label>
+			      <label for="tessera" class="password">Socio: </label>
 			      <input type="text" id="tessera" name="tessera" autocomplete="off" required>
 			  </div>
 			  

@@ -1,9 +1,9 @@
- 
- <?php
-include('./login.php'); // Includes Login Script
+<?php
+require_once ("../session.php");
 
-if(isset($_SESSION['login_user'])){
-//header("location: accesso.php");
+session_start();
+if(!isset($_SESSION['login_user'])){
+header("location: ../index.php");
 }
 ?>
 

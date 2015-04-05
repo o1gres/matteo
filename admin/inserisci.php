@@ -1,8 +1,9 @@
  <?php
-include('./login.php'); // Includes Login Script
+require_once ("../session.php");
 
-if(isset($_SESSION['login_user'])){
-//header("location: accesso.php");
+session_start();
+if(!isset($_SESSION['login_user'])){
+header("location: ../index.php");
 }
 ?>
 
@@ -106,7 +107,7 @@ if(isset($_SESSION['login_user'])){
 			  
 			  <div class="data bottom">
 			      <label for="data_di_nascita" class="data">Data di nascita: </label>
-			      <input type="text" id="data_di_nascita" name="data_di_nascita" required/>
+			      <input type="text" id="data_di_nascita" name="data_di_nascita" placeholder="gg/mm/aaaa" required/>
 			  </div>
 			  
 			  <div class="paese bottom">

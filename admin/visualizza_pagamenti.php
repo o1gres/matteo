@@ -3,7 +3,7 @@ require_once('../settings.php');
 
 $nome=strtolower($_POST['nome']);
 $cognome=strtolower($_POST['cognome']);
-$usersocio=strtolower($_POST['username']);
+$usersocio=strtolower($_POST['tessera']);
 $mese=$_POST['mesi'];
 $anno=$_POST['anni'];
 

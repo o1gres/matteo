@@ -1,12 +1,33 @@
  <?php
-include('login.php'); // Includes Login Script
+require_once ("session.php");
 
-if(isset($_SESSION['login_user'])){
-//header("location: scelta.php");
+session_start();
+if(!isset($_SESSION['login_user'])){
+header("location: index.php");
 }
 
 $nome=$_GET['nome'];
 $cognome=$_GET['cognome'];
+$usersocio_enc = $_GET['user'];
+
+$today = date('Y-m');
+
+
+
+$servername = HOST;
+$username = USER;
+$password = PASSWORD;
+$dbname = DB;
+
+
+// Create connection
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -71,8 +92,24 @@ $cognome=$_GET['cognome'];
 			  Benvenuto
 			  <span class="upper"><?php echo("$nome") ?></span>
 			  <span class="upper"><?php echo("$cognome") ?></span>
+			  <br><br>
 			  <?php
-			    header("Refresh: 2; URL=accesso.php");
+			  
+						      //CERCO L'UTENTE NEL DATABASE
+			  $query = "select * from clienti where LOWER(username)='$usersocio_enc'";
+			      $result = $mysqli->query($query);
+			      if($result->num_rows >0)
+				{
+				  while($row = $result->fetch_array(MYSQLI_ASSOC))
+				  {    
+				    $user_id = $row['id'];
+				    $result = $mysqli->query("SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id' AND data LIKE '$today%'");
+				    $row = $result->fetch_assoc();
+				    echo "In questo mese hai effettuato ". $row['num']." accessi";   	      
+				  }
+				}
+			  
+			    header("Refresh: 4; URL=accesso.php");
 			  ?>
 			  </div>
 		      </div>

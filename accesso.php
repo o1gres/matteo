@@ -1,6 +1,9 @@
 <?php
-if(isset($_SESSION['login_user'])){
-header("location: accesso.php");
+require_once ("session.php");
+
+session_start();
+if(!isset($_SESSION['login_user'])){
+header("location: index.php");
 }
 ?>
 
@@ -92,7 +95,7 @@ header("location: accesso.php");
 
 			  <div class="tessera bottom">
 			      <label for="tessera" class="password">Username: </label>
-			      <input type="text" id="tessera" name="tessera" required>
+			      <input type="text" id="tessera" name="tessera" autocomplete="off" required>
 			  </div>
 			  
 			  <div class="invia">

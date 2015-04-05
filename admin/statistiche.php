@@ -1,6 +1,13 @@
 <?php 
 require_once('../settings.php');
 
+require_once ("../session.php");
+
+session_start();
+if(!isset($_SESSION['login_user'])){
+header("location: ../index.php");
+}
+
 $nome=strtolower($_POST['nome']);
 $cognome=strtolower($_POST['cognome']);
 $usersocio=strtolower($_POST['username']);
@@ -134,8 +141,9 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 	     } 
 	  
 	  */
+
 	  } else {
-	    echo "Nessun accesso nel periodo selezionato";
+	    //echo "Nessun accesso nel periodo selezionato";
 	  }
 	  
 	}

@@ -38,7 +38,7 @@ if ($mysqli->connect_error) {
 		   $user_id = $row['id'];
 		   $sql = "INSERT INTO accessi (cliente, data) VALUES (\"$user_id\", \"$data\")";
 		   if ($mysqli->query($sql) === TRUE) {
-			    header("Refresh: 0; URL=accessocorretto.php?nome=$a&cognome=$b");
+			    header("Refresh: 0; URL=accessocorretto.php?nome=$a&cognome=$b&user=$usersocio_enc");
 			  } else {
 			      echo "Error: " . $sql . "<br>" . $conn->error;
 			  }

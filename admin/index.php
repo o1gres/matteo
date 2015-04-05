@@ -1,8 +1,9 @@
 <?php
-include('login.php'); // Includes Login Script
+require_once ("../session.php");
 
-if(isset($_SESSION['login_user'])){
-//header("location: ../index.php");
+session_start();
+if(!isset($_SESSION['login_user'])){
+header("location: ../index.php");
 }
 ?>
 
@@ -79,7 +80,7 @@ if(isset($_SESSION['login_user'])){
 			
 			<a href="visualizza_accessi.php" id="visualizza_accessi" class="visualizza button btn btn-primary">Visualizza accessi</a>
 			
-			<a href="pagamenti_scelta.php" id="visualizza" class="visualizza button btn btn-primary">Pagamenti</a>
+			<a href="pagamenti_scelta.php" id="visualizza" class="visualizza button btn btn-primary" style="display:none;">Pagamenti</a>
 		      </div>
                         
 		    </div>

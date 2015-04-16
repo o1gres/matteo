@@ -1,4 +1,13 @@
 <?php
+
+/**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: Sotre session into server, NOT USED!
+*
+*/
+
 require_once('settings.php');
 $mysqli = new mysqli(HOST, USER, PASS, DB);
 	      

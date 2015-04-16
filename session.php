@@ -1,4 +1,13 @@
  <?php 
+ 
+ /**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: Store session into database table.
+*
+*/ 
+ 
 require_once('settings.php'); 
   
 $mysqli = new mysqli(HOST, USER, PASSWORD, DB);

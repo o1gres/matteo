@@ -11,8 +11,8 @@ header("location: ../index.php");
 $nome=strtolower($_POST['nome']);
 $cognome=strtolower($_POST['cognome']);
 $usersocio=strtolower($_POST['username']);
-$dal=$_POST['dal'];
-$al=$_POST['al'];
+//$dal=$_POST['dal'];
+//$al=$_POST['al'];
 
 $nome_enc =  base64_encode($nome);
 $cognome_enc =  base64_encode($cognome);
@@ -92,7 +92,7 @@ if ($mysqli->connect_error) {
 					
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
 
 <?php
 //CERCO L'UTENTE NEL DATABASE
@@ -105,8 +105,10 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 	echo($nome." ".$cognome."<br><br>");
 	
 	  $user_id = $row['id'];
-	  $sql = "SELECT * FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
-	  $sql2 = "SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
+	  //$sql = "SELECT * FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
+	  $sql = "SELECT * FROM accessi WHERE cliente='$user_id'";
+	  //$sql2 = "SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id' AND data BETWEEN '$dal' AND '$al'";
+	  $sql2 = "SELECT COUNT(*) AS num FROM accessi WHERE cliente='$user_id'";
 	  $sql3 = "SELECT * FROM clienti WHERE username='$usersocio_enc'";
 	  $result1 = $mysqli->query($sql);
 	  $result2 = $mysqli->query($sql2);  
@@ -120,14 +122,25 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 	      <td>Telefono</td>
 	      <td>Tipo di attività</td>
 	      <td>Pagamenti</td>
+	      <td>Modifica</td>
 	    <tr>
-	    <tr>
-	      <td> <?php echo($row3['data_di_nascita']); ?> </td>
-	      <td> <?php echo($row3['paese']); ?> </td>
-	      <td> <?php echo($row3['telefono']); ?> </td>
-	      <td> <?php echo($row3['tipo_attivita']); ?> </td>
-	      <td> <?php echo($row3['pagamento']); ?> </td>
-	    <tr>
+	    <form id="<?php echo($user_id); ?>" name="<?php echo($user_id); ?>" action="edit_socio.php" method="post">
+	      <tr>
+		<input type="hidden" id="userid" name="userid" value="<?php echo($user_id); ?>" />
+		<td> <?php echo($row3['data_di_nascita']); ?> </td>
+		<td> <?php echo($row3['paese']); ?> </td>
+		<td> <?php echo($row3['telefono']); ?> </td>
+		<td> 
+		  <textarea id="edit_attivita" name="edit_attivita"><?php echo($row3['tipo_attivita']);?></textarea>
+		</td>
+		<td> 
+		  <textarea id="edit_pagamento" name="edit_pagamento"><?php echo($row3['pagamento']);?></textarea>
+		</td>  
+		<td>
+		  <input type="submit" value="OK" style="width: 50px; height: 25px;">
+		</td>
+	      <tr>
+	    </form>
 	  <table>
 	  <?php
 	  //echo($row3['data_di_nascita']." - ".$row3['paese']." - ".$row3['telefono']." - ".$row3['tipo_attivita']." - ".$row3['pagamento']);

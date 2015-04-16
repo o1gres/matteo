@@ -1,4 +1,14 @@
 <?php
+
+/**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: Discriminatory HTML page to show a choise for user, to do an acces as administrator or  as Socio.
+*
+*/
+
+
 require_once ("session.php");
 
 session_start();
@@ -67,7 +77,7 @@ header("location: index.php");
 					
                     <img class="img-responsive" src="img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
 		      
 		      <div>
 			<a href="admin/index.php" id="admin" class="admin button btn btn-primary">Admin</a>

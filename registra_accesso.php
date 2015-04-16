@@ -1,7 +1,15 @@
 <?php
+
+/**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: Save new user on the database.
+*
+*/
+
+
 require_once('settings.php');
-
-
 
  $usersocio=$_POST['tessera'];
  $now = new DateTime();
@@ -47,39 +55,6 @@ if ($mysqli->connect_error) {
 
 		  header('Refresh: 0; URL=usersocioerror.php');
 		  }
-		
-		
-		
-		/*
-			  //INSERISCO NEL DB
-
-			  $sql = "INSERT INTO clienti (nome, cognome, num_tessera) VALUES (\"$nome_enc\", \"$cognome_enc\", \"$tessera\")";
-
-			  if ($mysqli->query($sql) === TRUE) {
-			      echo "New record created successfully";
-			  } else {
-			      echo "Error: " . $sql . "<br>" . $conn->error;
-			  }
-			  
-			  
-			  //REGISTRO IL PRIMO ACCESSO
-			  $query = "select * from clienti where nome='$nome_enc' AND cognome='$cognome_enc' AND num_tessera='$tessera'";
-			  $result = $mysqli->query($query);
-			  if($result->num_rows >0)
-			    {
-			      while($row = $result->fetch_array(MYSQLI_ASSOC))
-			      {
-			      $user_id = $row['id'];
-			      echo("id1: ".$user_id);
-			      $sql = "INSERT INTO accessi (cliente, data) VALUES (\"$user_id\", \"$data\")";
-			      if ($mysqli->query($sql) === TRUE) {
-					header("location: accesso.php");
-				      } else {
-					  echo "Error: " . $sql . "<br>" . $conn->error;
-				      }
-			      }
-			    }
-		        */
 
 $mysqli->close();
 ?>     

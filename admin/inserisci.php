@@ -66,7 +66,7 @@ header("location: ../index.php");
 					
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
                     
 		      <div>
 			<a href="index.php" class="btn btn-primary" style="margin-bottom: 20px;"> Torna ad Amministrazione </a>

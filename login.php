@@ -1,5 +1,13 @@
 <?php
 
+/**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: Authentication Page.
+*
+*/
+
 //session_set_save_handler ("open", "close", "read", "write", "destroy", "gc");
 require_once('settings.php');
 require_once('session.php');

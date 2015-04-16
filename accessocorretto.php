@@ -1,4 +1,13 @@
- <?php
+<?php
+
+/**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: PHP page to make login, redirect to first privare page.
+*
+*/
+
 require_once ("session.php");
 
 session_start();
@@ -85,7 +94,7 @@ if ($mysqli->connect_error) {
 					
                     <img class="img-responsive" src="img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
                     
 		      <div>
 			  <div class="benvenuto">

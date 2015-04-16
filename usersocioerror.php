@@ -1,5 +1,14 @@
+ <?php
  
-<?php
+ /**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: Error page showed when user socio entre an invalid username.
+*
+*/
+ 
+ 
 include('login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
@@ -62,7 +71,7 @@ if(isset($_SESSION['login_user'])){
 					
                     <img class="img-responsive" src="img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
                     
 		      <div>
 			Username errata!

@@ -79,7 +79,7 @@ if ($mysqli->connect_error) {
 					
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
 
 <?php
 //CONTO IL NUMERO DI ACCESSI

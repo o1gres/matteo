@@ -1,4 +1,13 @@
 <?php
+
+/**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: Index page.
+*
+*/
+
 require('login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
@@ -61,7 +70,7 @@ header("location: login.php");
 					
                     <img class="img-responsive" src="img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
                     
 		      <form id="submit" name="submit" action="login.php" method="post">
 			  

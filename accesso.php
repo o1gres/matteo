@@ -1,4 +1,15 @@
 <?php
+
+/**
+*	Author: Sergio Cordedda
+*	Date: March 2015
+*	email: cor.se@hotmail.it
+*	Description: HTML + PHP page for insert login data.
+*
+*/
+
+
+
 require_once ("session.php");
 
 session_start();
@@ -65,7 +76,7 @@ header("location: index.php");
 					
                     <img class="img-responsive" src="img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="caption-full">
+                    <div class="col-md-2 col-md-offset-5">
                     
 		      <form id="accesso" name="accesso" action="registra_accesso.php" method="post">
 			  
@@ -94,7 +105,7 @@ header("location: index.php");
 			  -->			  
 
 			  <div class="tessera bottom">
-			      <label for="tessera" class="password">Username: </label>
+			      <label for="tessera" class="password">Socio: </label>
 			      <input type="text" id="tessera" name="tessera" autocomplete="off" required>
 			  </div>
 			  

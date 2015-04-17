@@ -18,7 +18,6 @@ $error=''; // Variable To Store Error Message
 	  $error = "Username or Password is invalid";
 	  //echo($error);
       } else {
-	      echo ("ciao2");
 	      // Define $username and $password
 	      $username=$_POST['uname'];
 	      $password=md5($_POST['upass']);
@@ -37,7 +36,6 @@ $error=''; // Variable To Store Error Message
 	      // SQL query to fetch information of registerd users and finds user match.
 	      $query = "select * from access where pass='$password' AND user='$username'";
 	      $result = $mysqli->query($query);
-	      
 	      if($result->num_rows >0)
 		{
 		  while($row = $result->fetch_array(MYSQLI_ASSOC))
@@ -49,8 +47,9 @@ $error=''; // Variable To Store Error Message
 		   header("location: scelta.php");
 		  }
 		} else {
-			
+			session_start(); // Starting Session
 			$_SESSION['message'] = 'Nome utente o password errati!';
+			header('Refresh: 0; URL=index.php');
 			mysqli_close($mysqli);
 			}
 	      }

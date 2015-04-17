@@ -77,6 +77,7 @@ header("location: login.php");
 			  <div class="error bottom">
 			      <span class="errore">
 				  <?php
+				  session_start();
 				  if (isset($_SESSION['message']))
 				    {
 					echo $_SESSION['message'];

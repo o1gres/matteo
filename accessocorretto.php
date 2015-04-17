@@ -15,6 +15,10 @@ if(!isset($_SESSION['login_user'])){
 header("location: index.php");
 }
 
+if(!isset($_SESSION['message'])){
+header("location: accesso.php");
+}
+
 $nome=$_GET['nome'];
 $cognome=$_GET['cognome'];
 $usersocio_enc = $_GET['user'];
@@ -116,6 +120,7 @@ if ($mysqli->connect_error) {
 				    $row = $result->fetch_assoc();
 				    echo "In questo mese hai effettuato ". $row['num']." accessi";   	      
 				  }
+				unset($_SESSION['message']);
 				}
 			  
 			    header("Refresh: 4; URL=accesso.php");

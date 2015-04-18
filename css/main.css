@@ -82,6 +82,10 @@ input {
   border: 1px dotted;
 }
 
+.stat_accessi tbody tr > td {
+  padding: 10px !important;
+}
+
 .num_access {
   position: relative !important;
   left: -80px !important;

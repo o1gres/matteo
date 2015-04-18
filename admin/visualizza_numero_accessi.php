@@ -79,17 +79,52 @@ if ($mysqli->connect_error) {
 					
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="col-md-2 col-md-offset-5">
+                    <div class="col-md-2 col-md-offset-3">
 
 <?php
 //CONTO IL NUMERO DI ACCESSI
 $result = $mysqli->query("SELECT COUNT(*) AS num FROM accessi WHERE data BETWEEN '$dal' AND '$al'");
-   
 $row = $result->fetch_assoc();
+
+$sql = "SELECT *, COUNT(*) AS num_accessi FROM clienti INNER JOIN accessi ON clienti.id=accessi.cliente GROUP BY clienti.id";
+	    $result1 = $mysqli->query($sql);
+	    if($result1->num_rows >0){
+	    ?>
+	    <table class="stat_accessi">
+	      <tr>
+		<td>Nome</td>
+		<td>Cognome</td>
+		<td>Paese</td>
+		<td>Tipo di attività</td>
+		<td>Pagamenti</td>
+		<td>Numero accessi</td>
+	      </tr>
+	    <?php
+	      while($row = $result1->fetch_array(MYSQLI_ASSOC)){
+	      ?>
+	      <tr>
+		  <td> <?php echo(base64_decode($row['nome'])); ?> </td>
+		  <td> <?php echo(base64_decode($row['cognome'])); ?> </td>
+		  <td> <?php echo($row['paese']); ?> </td>
+		  <td> <?php echo($row['tipo_attivita']); ?> </td>
+		  <td> <?php echo($row['pagamento']); ?> </td>
+		  <td> <?php echo($row['num_accessi']); ?> </td>
+	      <?php
+		//echo(base64_decode($row['nome'])."".base64_decode($row['cognome'])."".$row['paese']."".$row['tipo_attivita']."".$row['pagamento']."".$row['num_accessi']."<br> <br>");
+	      ?>
+	      </tr>
+	      <?php
+	      } 
+	      ?>
+	      
+	      </table>
+	      
+	      <?php
+	    }  
 ?>
 <div class="num_access">
 <?php
-  echo "Dal ".$dal." al ".$al." sono stati effettuati: ". $row['num']." accessi";   
+  //echo "Dal ".$dal." al ".$al." sono stati effettuati: ". $row['num']." accessi";   
 ?>
 </div>
 

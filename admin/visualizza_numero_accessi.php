@@ -86,7 +86,7 @@ if ($mysqli->connect_error) {
 $result = $mysqli->query("SELECT COUNT(*) AS num FROM accessi WHERE data BETWEEN '$dal' AND '$al'");
 $row = $result->fetch_assoc();
 
-$sql = "SELECT *, COUNT(*) AS num_accessi FROM clienti INNER JOIN accessi ON clienti.id=accessi.cliente GROUP BY clienti.id, tipo_attivita ASC";
+$sql = "SELECT *, COUNT(*) AS num_accessi FROM clienti INNER JOIN accessi ON clienti.id=accessi.cliente GROUP BY clienti.id ORDER BY tipo_attivita ASC";
 	    $result1 = $mysqli->query($sql);
 	    if($result1->num_rows >0){
 	    ?>

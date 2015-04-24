@@ -5,6 +5,8 @@ require_once('../settings.php');
 $userid=($_POST['userid']);
 $attivita=($_POST['edit_attivita']);
 $pagati=($_POST['edit_pagamento']);
+$telefono=($_POST['telefono']);
+$paese=($_POST['paese']);
    
 
 $servername = HOST;
@@ -85,7 +87,7 @@ if ($mysqli->connect_error) {
 //CONTROLLO SE L'UTENTE E' GIA PRESENTE NEL DB
 
 //CERCO L'UTENTE NEL DATABASE
-$sql = "UPDATE clienti SET tipo_attivita='$attivita', pagamento='$pagati' WHERE id='$userid'";
+$sql = "UPDATE clienti SET tipo_attivita='$attivita', pagamento='$pagati', paese='$paese', telefono='$telefono' WHERE id='$userid'";
 if ($mysqli->query($sql) === TRUE) {
     echo "Dati aggiornati correttamente";
 } else {

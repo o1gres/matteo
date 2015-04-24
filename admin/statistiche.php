@@ -92,7 +92,7 @@ if ($mysqli->connect_error) {
 					
                     <img class="img-responsive" src="../img/logo_pf.jpg" alt="" style="width:30%; margin-bottom:5%;">
                     
-                    <div class="col-md-2 col-md-offset-3">
+                    <div class="col-md-2 col-md-offset-2">
 
 <?php
 //CERCO L'UTENTE NEL DATABASE
@@ -128,8 +128,8 @@ $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)
 	      <tr>
 		<input type="hidden" id="userid" name="userid" value="<?php echo($user_id); ?>" />
 		<td> <?php echo($row3['data_di_nascita']); ?> </td>
-		<td> <?php echo($row3['paese']); ?> </td>
-		<td> <?php echo($row3['telefono']); ?> </td>
+		<td> <input type="text" name="paese" value="<?php echo($row3['paese']); ?>" style="width: 150px;"></input> </td>
+		<td> <input type="text" name="telefono" value="<?php echo($row3['telefono']); ?>" style="width: 150px;"> </input> </td>
 		<td> 
 		  <textarea id="edit_attivita" name="edit_attivita"><?php echo($row3['tipo_attivita']);?></textarea>
 		</td>

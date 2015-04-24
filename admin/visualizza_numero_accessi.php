@@ -71,7 +71,7 @@ if ($mysqli->connect_error) {
 	    <div class="col-md-9" style="width: 100%;">
 				
 		<div class="esci">
-		  <a href="visualizza.php" class="btn btn-primary">Indietro </a>
+		  <a href="visualizza_accessi.php" class="btn btn-primary">Indietro </a>
 		  <a href="../logout.php" class="btn btn-danger">Esci </a>
 		</div>		
 				

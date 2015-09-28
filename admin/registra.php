@@ -11,9 +11,9 @@ $telefono=$_POST['telefono'];
 $attivita=$_POST['attivita'];
 $pagato=$_POST['pagato'];
 
-$nome_enc =  base64_encode($nome);
-$cognome_enc =  base64_encode($cognome);
-$usersocio_enc = base64_encode($usersocio);
+$nome_enc =  base64_encode(strtolower($nome));
+$cognome_enc =  base64_encode(strtolower($cognome));
+$usersocio_enc = base64_encode(strtolower($usersocio));
     
     
 

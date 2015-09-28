@@ -14,6 +14,7 @@ $usersocio=strtolower($_POST['username']);
 //$dal=$_POST['dal'];
 //$al=$_POST['al'];
 
+
 $nome_enc =  base64_encode($nome);
 $cognome_enc =  base64_encode($cognome);
 $usersocio_enc = base64_encode($usersocio);
@@ -96,8 +97,10 @@ if ($mysqli->connect_error) {
 
 <?php
 //CERCO L'UTENTE NEL DATABASE
+//print_r($nome_enc);
 $query = "select * from clienti where LOWER(nome)='$nome_enc' AND LOWER(cognome)='$cognome_enc' AND LOWER(username)='$usersocio_enc'";
     $result = $mysqli->query($query);
+    //print_r($result);
     if($result->num_rows >0)
       {
 	while($row = $result->fetch_array(MYSQLI_ASSOC))

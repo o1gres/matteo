@@ -11,7 +11,7 @@
 require_once('session.php');
 require_once('settings.php');
 
- $usersocio=$_POST['tessera'];
+ $usersocio=strtolower($_POST['tessera']);
  $now = new DateTime();
  $data =  $now->format('Y-m-d'); 
   // MySQL datetime format

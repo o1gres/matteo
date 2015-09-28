@@ -15,6 +15,7 @@ require_once('session.php');
 $error=''; // Variable To Store Error Message
   if (!isset($_POST['submit'])) {   
       if (empty($_POST['uname']) || empty($_POST['upass'])) {
+print_r($_POST['uname']);
 	  $error = "Username or Password is invalid";
 	  //echo($error);
       } else {
@@ -36,6 +37,7 @@ $error=''; // Variable To Store Error Message
 	      // SQL query to fetch information of registerd users and finds user match.
 	      $query = "select * from access where pass='$password' AND user='$username'";
 	      $result = $mysqli->query($query);
+print_r($result);
 	      if($result->num_rows >0)
 		{
 		  while($row = $result->fetch_array(MYSQLI_ASSOC))

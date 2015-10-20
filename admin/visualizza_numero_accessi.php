@@ -93,6 +93,7 @@ $sql = "SELECT *, COUNT(*) AS num_accessi FROM clienti INNER JOIN accessi ON cli
 	    ?>
 	    <table class="stat_accessi">
 	      <tr>
+	        <td></td>
 		<td>Nome</td>
 		<td>Cognome</td>
 		<td>Numero accessi</td>
@@ -101,9 +102,11 @@ $sql = "SELECT *, COUNT(*) AS num_accessi FROM clienti INNER JOIN accessi ON cli
 
 	      </tr>
 	    <?php
+	      $num = 1;
 	      while($row = $result1->fetch_array(MYSQLI_ASSOC)){
 	      ?>
 	      <tr>
+		  <td> <?php echo($num); ?></td>
 		  <td> <?php echo(base64_decode($row['nome'])); ?> </td>
 		  <td> <?php echo(base64_decode($row['cognome'])); ?> </td>
 		  <td> <?php echo($row['num_accessi']); ?> </td>
@@ -111,6 +114,7 @@ $sql = "SELECT *, COUNT(*) AS num_accessi FROM clienti INNER JOIN accessi ON cli
 		  <td> <?php echo($row['pagamento']); ?> </td>
 		  
 	      <?php
+	      $num++;
 		//echo(base64_decode($row['nome'])."".base64_decode($row['cognome'])."".$row['paese']."".$row['tipo_attivita']."".$row['pagamento']."".$row['num_accessi']."<br> <br>");
 	      ?>
 	      </tr>
